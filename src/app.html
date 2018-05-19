@@ -1,0 +1,50 @@
+<template>
+  <header>
+    User App
+  
+  <ul>
+    <li>
+      <a route-href="home">Home</a>
+    </li>
+    <li>
+        <a route-href="about">About</a>
+      </li>
+  </ul>
+</header>
+  <section>
+    <router-view></router-view>
+  </section>
+  <footer>
+    </footer>
+  <require from="./resources/elements/user"></require>
+  <require from="./resources/elements/githubusers"></require>
+  <h1>${header}</h1>
+  <p>${content}</p>
+  <p>${email}</p>
+  <p>${Form}</p>
+  <p>${throttle}</p>
+
+  <button click.delegate = "updateContent()">Update Content1</button>
+  <button click.delegate = "updateContentold()">Update Content2</button>
+  <input type = "text" value.bind = "email" placeholder = "Email">
+  <input type= "text" value.bind="Form & debounce:300" placeholder = "debounce">
+  <input type= "text" value.bind="throttle & throttle:3000" placeholder = "throttle">
+  
+  <input type.bind= "text" value.bind="message" placeholder = "message">
+  <input type="text" value.bind="query">
+  <ul>
+    <li if.bind="users" repeat.for="user of users |filter:query">
+      ${user.name}
+      ${user.age}
+    </li>
+  </ul>
+  ${users|valueconverter}
+  <user></user>
+  <githubusers></githubusers>
+  <div if.bind="message==='hello'">
+       Hello
+  </div>
+  <div else>
+       Sorry
+  </div>
+</template>

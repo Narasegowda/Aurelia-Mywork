@@ -1,0 +1,27 @@
+
+<template>
+<input type="text"
+  value.bind="query"
+  keyup.delegate="onqueryChange()" placeholder="Query">
+<table><thead>
+  <tr>
+    <th>
+      Login
+    </th>
+    <th>
+      ID
+    </th>
+  </tr>
+<tbody>
+  <tr repeat.for="user of users">
+<td>
+  ${user.login}
+</td>
+<td>
+    ${user.avatar_url}
+</td>
+  </tr>
+</tbody>
+</table>
+</template>
+

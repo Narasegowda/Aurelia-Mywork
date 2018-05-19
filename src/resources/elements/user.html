@@ -1,0 +1,36 @@
+<template>
+  <require from="./user-list"></require>
+  <require from="./userlist.css"></require>
+<table>
+    <thead><tr>
+      <th>
+        Name:
+      </th>
+      <th>
+          age:
+        </th>
+        <th>
+           Details:
+          </th>
+    </tr>
+    </thead><tbody>
+      <tr repeat.for="user of users ">
+        <td>${user.index}</td>
+        <td>${user.login}</td>
+        <td>${user.avatar_url}</td>
+      
+        <td>
+        <button click.delegate="onslect(user)">view</button>
+      </td>
+      </tr>
+    </tbody>
+    </thead>
+  </table>
+  
+  <div>
+      <input type.bind= "text" value.bind="name" placeholder = "name">
+      <input type.bind= "text" value.bind="age" placeholder = "age">
+    <button click.delegate="adduser(name,age)">Add user</button>
+  </div>
+  <user-list value.bind="selecteduser"></user-list>
+</template>
